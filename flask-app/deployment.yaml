@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-form-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-form-app
+  template:
+    metadata:
+      labels:
+        app: flask-form-app
+    spec:
+      containers:
+      - name: flask-form-app
+        image: <region>.icr.io/<your-namespace>/flask-form-app
+        ports:
+        - containerPort: 5000
